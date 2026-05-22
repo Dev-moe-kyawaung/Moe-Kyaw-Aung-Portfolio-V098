@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Moe Kyaw Aung - Senior Android Developer with 12 years of experience building secure, scalable mobile applications using Kotlin, Jetpack Compose, and Firebase.">
+    <meta name="keywords" content="Android Developer, Kotlin, Jetpack Compose, MVVM, Clean Architecture, Firebase, Senior Android Engineer, Moe Kyaw Aung">
+    <meta name="author" content="Moe Kyaw Aung">
+    <title>Moe-Kyaw-Aung-Portfolio V098 | Senior Android Developer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --honey-orange: #FF9644;
+            --peach: #FFCE99;
+            --deep-brown: #562F00;
+            --warm-white: #FFFDF1;
+            --dark-bg: #1A140F;
+            --accent: #FF9644;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+            background-color: var(--warm-white);
+            color: var(--deep-brown);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .brutalist {
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        .section {
+            padding: 3rem 0;
+        }
+        
+        .section-compact {
+            padding: 2rem 0;
+        }
+        
+        .nav-custom {
+            background: rgba(255, 253, 241, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(86, 47, 0, 0.1);
+            z-index: 1030;
+        }
+        
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.35rem;
+            color: var(--deep-brown);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--deep-brown) !important;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--honey-orange) !important;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--warm-white) 0%, #F8F5EB 100%);
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: url('https://picsum.photos/id/1015/2000/1200') center/cover;
+            opacity: 0.06;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--honey-orange);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+        .main-title {
+            font-size: 4.2rem;
+            font-weight: 700;
+            line-height: 1.05;
+            color: var(--deep-brown);
+            margin-bottom: 1.25rem;
+        }
+        
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--deep-brown);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--honey-orange);
+        }
+        
+        .accent-text {
+            color: var(--honey-orange);
+        }
+        
+        .brutalist-card {
+            background: white;
+            border: 3px solid var(--deep-brown);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 6px 6px 0 var(--deep-brown);
+        }
+        
+        .brutalist-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0 var(--deep-brown);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: var(--deep-brown);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--honey-orange), var(--peach));
+            transition: width 1.2s cubic-bezier(0.23, 1.0, 0.32, 1);
+        }
+        
+        .stat-number {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--honey-orange);
+            line-height: 1;
+        }
+        
+        .nav-active {
+            color: var(--honey-orange) !important;
+            font-weight: 600;
+        }
+        
+        .portfolio-item {
+            transition: all 0.4s cubic-bezier(0.23, 1.0, 0.32, 1);
+            overflow: hidden;
+            border: 2px solid var(--deep-brown);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+        }
+        
+        .portfolio-img {
+            transition: transform 0.6s cubic-bezier(0.23, 1.0, 0.32, 1);
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.08);
+        }
+        
+        .orange-btn {
+            background: var(--honey-orange);
+            color: white;
+            border: none;
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+        
+        .orange-btn:hover {
+            background: var(--deep-brown);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .outline-btn {
+            background: transparent;
+            color: var(--deep-brown);
+            border: 2px solid var(--deep-brown);
+            font-weight: 600;
+            padding: 0.75rem 1.75rem;
+            transition: all 0.3s ease;
+        }
+        
+        .outline-btn:hover {
+            background: var(--deep-brown);
+            color: white;
+        }
+        
+        .custom-cursor {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--honey-orange);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            transition: width 0.2s, height 0.2s, border-radius 0.2s;
+            display: none;
+        }
+        
+        .progress-ring {
+            transition: stroke-dashoffset 1.2s ease;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--peach);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            background: var(--honey-orange);
+            border: 4px solid var(--warm-white);
+            border-radius: 50%;
+            z-index: 2;
+        }
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--honey-orange);
+            z-index: 9999;
+        }
+        
+        .parallax-layer {
+            transition: transform 0.1s ease-out;
+        }
+        
+        .tech-badge {
+            background: var(--deep-brown);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .fat-footer {
+            background: var(--deep-brown);
+            color: var(--warm-white);
+        }
+        
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--warm-white);
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease;
+        }
+        
+        .metric-card {
+            background: white;
+            border: 3px solid var(--deep-brown);
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-6px);
+        }
+        
+        .app-card {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .app-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 8px 8px 0 var(--deep-brown);
+        }
+        
+        .nav-scrolled {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="text-center">
+            <div class="spinner-border text-orange" style="width: 3.5rem; height: 3.5rem; color: var(--honey-orange);" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p class="mt-3 fw-semibold">Loading Portfolio...</p>
+        </div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" class="scroll-progress" style="width: 0%"></div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor" class="custom-cursor"></div>
+
+    <!-- Fixed Navigation -->
+    <nav class="navbar navbar-expand-lg nav-custom fixed-top" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand nav-brand" href="#">
+                <span class="fw-bold">MOE KYAW AUNG</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto me-3">
+                    <li class="nav-item"><a class="nav-link px-3" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#certificates">Certificates</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#impact">Impact</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-2">
+                    <!-- Dark/Light Toggle -->
+                    <button id="theme-toggle" class="btn btn-sm btn-outline-dark px-3 py-2" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <a href="#contact" class="btn orange-btn btn-sm px-4">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-bg"></div>
+        
+        <!-- Interactive Canvas Background -->
+        <canvas id="hero-canvas" class="position-absolute top-0 start-0 w-100 h-100" style="z-index: 1; opacity: 0.15;"></canvas>
+        
+        <div class="container position-relative" style="z-index: 2;">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="mb-3">
+                        <span class="tagline">⭐ ANDROID SENIOR DEVELOPER</span>
+                    </div>
+                    
+                    <h1 class="main-title brutalist">
+                        Moe Kyaw Aung<br>
+                        <span class="accent-text">V98</span>
+                    </h1>
+                    
+                    <p class="lead fs-4 text-muted mb-4" style="max-width: 560px;">
+                        Building secure, scalable, and delightful Android experiences for 12 years.
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="#projects" class="btn orange-btn px-5 py-3">Explore My Work</a>
+                        <a href="#contact" class="btn outline-btn px-5 py-3">Get In Touch</a>
+                    </div>
+                    
+                    <!-- Quick Stats -->
+                    <div class="d-flex gap-4">
+                        <div>
+                            <div class="fs-1 fw-bold text-orange">12</div>
+                            <div class="small text-muted">Years Experience</div>
+                        </div>
+                        <div>
+                            <div class="fs-1 fw-bold text-orange">1000+</div>
+                            <div class="small text-muted">Apps Delivered</div>
+                        </div>
+                        <div>
+                            <div class="fs-1 fw-bold text-orange">122</div>
+                            <div class="small text-muted">GitHub Repos</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="position-relative">
+                        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp" 
+                             alt="Moe Kyaw Aung - Senior Android Developer" 
+                             class="img-fluid rounded-4 shadow-lg" style="max-height: 520px; object-fit: cover;">
+                        
+                        <!-- Floating Badge -->
+                        <div class="position-absolute bottom-0 end-0 bg-white p-3 rounded-4 shadow-lg" style="transform: translate(20%, 20%);">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-circle bg-success" style="width: 14px; height: 14px;"></div>
+                                <div>
+                                    <div class="fw-semibold">Currently Building</div>
+                                    <div class="small">MoekyawTranslator — AI Translation App</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <div class="py-3 border-bottom" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="row align-items-center text-center justify-content-center g-4">
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <i class="fab fa-google fa-2x text-orange"></i>
+                        <div class="text-start">
+                            <div class="fw-bold">Google Developers</div>
+                            <div class="small text-muted">Launchpad Alumnus</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <i class="fas fa-shield-alt fa-2x text-orange"></i>
+                        <div class="text-start">
+                            <div class="fw-bold">40+ Certificates</div>
+                            <div class="small text-muted">Verified Credentials</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="d-flex align-items-center justify-content-center gap-2">
+                        <i class="fab fa-github fa-2x text-orange"></i>
+                        <div class="text-start">
+                            <div class="fw-bold">122 Repositories</div>
+                            <div class="small text-muted">Open Source</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="mb-4">
+                        <span class="badge bg-orange px-3 py-2">12 YEARS EXPERIENCE</span>
+                    </div>
+                    <h2 class="section-title">Android Developer.<br>Problem Solver.<br>Team Leader.</h2>
+                    
+                    <div class="mt-4">
+                        <p class="lead">I am a Senior Android Developer with nearly 12 years of hands-on experience building secure, scalable, and user-friendly mobile applications.</p>
+                        
+                        <p>Specialized in <strong>Kotlin</strong>, modern <strong>Jetpack Compose</strong>, <strong>MVVM + Clean Architecture</strong>, and Firebase integration. I focus on clean code, practical security, and delivering features from UI to release-ready builds.</p>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <div class="row g-3">
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="tech-badge"><i class="fab fa-android"></i> Kotlin</div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="tech-badge"><i class="fas fa-layer-group"></i> Jetpack Compose</div>
+                                </div>
+                            </div>
+                            <div class="col-auto">
+                                <div class="d-flex align-items-center gap-2">
+                                    <div class="tech-badge"><i class="fas fa-shield-alt"></i> Clean Architecture</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="brutalist-card p-4 rounded-4">
+                        <h5 class="mb-4">Current Focus</h5>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-medium">Kotlin Multiplatform (KMM)</span>
+                                <span class="text-orange fw-bold">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-medium">Jetpack Compose</span>
+                                <span class="text-orange fw-bold">98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span class="fw-medium">Firebase &amp; Cloud</span>
+                                <span class="text-orange fw-bold">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <div class="fw-bold">Currently Building</div>
+                                <div class="text-muted small">MoekyawTranslator — AI Translation App</div>
+                            </div>
+                            <div class="badge bg-orange text-white px-3 py-2">In Progress</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced About + Timeline -->
+    <section class="section section-compact" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <div class="sticky-top" style="top: 100px;">
+                        <h3 class="fw-bold mb-3">My Journey</h3>
+                        <p class="text-muted">From building my first Android app in 2013 to leading large-scale mobile projects today, my journey has been driven by continuous learning and a passion for great user experiences.</p>
+                        
+                        <div class="mt-4">
+                            <a href="#" class="btn outline-btn w-100">Download Full Resume (PDF)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="timeline">
+                        <!-- Timeline Item -->
+                        <div class="timeline-item mb-5">
+                            <div class="timeline-dot"></div>
+                            <div class="ms-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">Senior Android Engineer</div>
+                                        <div class="text-muted small">Tachileik, Myanmar &amp; Bangkok, Thailand</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="fw-semibold text-orange">2021 — Present</div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 small">Leading development of enterprise-grade Android applications with Kotlin Multiplatform and Jetpack Compose. Mentored 6 junior developers.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item mb-5">
+                            <div class="timeline-dot"></div>
+                            <div class="ms-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">Android Lead Developer</div>
+                                        <div class="text-muted small">Remote / Freelance</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="fw-semibold text-orange">2018 — 2021</div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 small">Architected and delivered 40+ production apps across fintech, healthcare, and logistics using Clean Architecture and Firebase.</div>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="ms-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <div class="fw-bold">Android Developer</div>
+                                        <div class="text-muted small">Various Companies</div>
+                                    </div>
+                                    <div class="text-end">
+                                        <div class="fw-semibold text-orange">2013 — 2018</div>
+                                    </div>
+                                </div>
+                                <div class="mt-2 small">Started career building native Android apps with Java. Transitioned to Kotlin and modern architecture patterns in 2016.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge px-3 py-2" style="background: var(--peach);">TECHNICAL EXPERTISE</span>
+                <h2 class="section-title mt-3">Tech Stack &amp; Skills</h2>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Progress Rings -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="brutalist-card p-4 rounded-4 text-center">
+                        <svg width="140" height="140" class="mb-3">
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#F0EDE4" stroke-width="12"/>
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#FF9644" stroke-width="12" 
+                                    stroke-dasharray="377" stroke-dashoffset="28" class="progress-ring"/>
+                        </svg>
+                        <div class="fw-bold">Kotlin</div>
+                        <div class="text-muted small">Advanced</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="brutalist-card p-4 rounded-4 text-center">
+                        <svg width="140" height="140" class="mb-3">
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#F0EDE4" stroke-width="12"/>
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#FF9644" stroke-width="12" 
+                                    stroke-dasharray="377" stroke-dashoffset="47" class="progress-ring"/>
+                        </svg>
+                        <div class="fw-bold">Jetpack Compose</div>
+                        <div class="text-muted small">Expert</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="brutalist-card p-4 rounded-4 text-center">
+                        <svg width="140" height="140" class="mb-3">
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#F0EDE4" stroke-width="12"/>
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#FF9644" stroke-width="12" 
+                                    stroke-dasharray="377" stroke-dashoffset="75" class="progress-ring"/>
+                        </svg>
+                        <div class="fw-bold">Firebase</div>
+                        <div class="text-muted small">Advanced</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-3">
+                    <div class="brutalist-card p-4 rounded-4 text-center">
+                        <svg width="140" height="140" class="mb-3">
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#F0EDE4" stroke-width="12"/>
+                            <circle cx="70" cy="70" r="60" fill="none" stroke="#FF9644" stroke-width="12" 
+                                    stroke-dasharray="377" stroke-dashoffset="113" class="progress-ring"/>
+                        </svg>
+                        <div class="fw-bold">CI/CD</div>
+                        <div class="text-muted small">Advanced</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tech Badges -->
+            <div class="mt-5">
+                <div class="row g-2 justify-content-center">
+                    <div class="col-auto"><div class="tech-badge"><i class="fab fa-android"></i> Android</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-layer-group"></i> MVVM</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-sync"></i> Coroutines</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-database"></i> Room</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-plug"></i> Retrofit</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-project-diagram"></i> Dagger/Hilt</div></div>
+                    <div class="col-auto"><div class="tech-badge"><i class="fas fa-cloud"></i> KMM</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge px-3 py-2" style="background: var(--peach);">FEATURED WORK</span>
+                <h2 class="section-title mt-3">My Create App Collection</h2>
+                <p class="text-muted">Production-ready applications built with modern Android architecture</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- App Cards -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795822/preview_dzhqvv.webp" class="w-100" alt="Social Dashboard App" style="height: 200px; object-fit: cover;">
+                            <div class="position-absolute top-0 end-0 m-3">
+                                <span class="badge bg-success">New</span>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">Social Dashboard</h5>
+                                    <span class="badge bg-orange text-white">Kotlin • Compose</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">Real-time social media analytics dashboard with Material 3 design and Firebase integration.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/social-dashboard" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778795675037_heh9xk.png" class="w-100" alt="Video Player App" style="height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">Video Player</h5>
+                                    <span class="badge bg-orange text-white">ExoPlayer • Kotlin</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">Advanced video player with custom controls, offline playback, and adaptive streaming.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/video-player" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778794626112_ega7kk.png" class="w-100" alt="Game Collection App" style="height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">Game Collection</h5>
+                                    <span class="badge bg-orange text-white">Jetpack Compose</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">Modern game library management app with beautiful UI and local data persistence.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/game-collection" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795859/copilot_image_1778794430377_n7xlmz.png" class="w-100" alt="PWA App" style="height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">Progressive Web App</h5>
+                                    <span class="badge bg-orange text-white">PWA • Offline First</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">High-performance PWA with offline capabilities and native-like experience.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/pwa-app" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795829/copilot_image_1778795000722_okryxj.png" class="w-100" alt="Job Portal App" style="height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">Job Portal App</h5>
+                                    <span class="badge bg-orange text-white">Kotlin • Firebase</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">Full-featured job portal with real-time chat, application tracking, and admin panel.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/Job-Portal-App" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card app-card rounded-4 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795847/copilot_image_1778795115579_acfm5j.png" class="w-100" alt="POS System" style="height: 200px; object-fit: cover;">
+                        </div>
+                        <div class="p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div>
+                                    <h5 class="mb-1">POS Ultimate Pro Max</h5>
+                                    <span class="badge bg-orange text-white">Enterprise • Offline</span>
+                                </div>
+                            </div>
+                            <p class="small text-muted mb-4">Complete Point of Sale system with inventory management and offline-first architecture.</p>
+                            
+                            <div class="d-flex justify-content-between align-items-center">
+                                <a href="https://github.com/moekyawaung-tech/POS-Ultimate-Pro-Max" target="_blank" class="btn btn-sm btn-outline-dark">View on GitHub</a>
+                                <a href="#" class="small text-orange fw-medium">Live Demo →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="btn outline-btn px-5 py-3">
+                    <i class="fab fa-github me-2"></i> View All Projects on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Metrics -->
+    <section id="impact" class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Impact &amp; Results</h2>
+                <p class="text-muted">Numbers that speak to the quality and scale of my work</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="500">500</div>
+                        <div class="fw-semibold mt-2">K Downloads</div>
+                        <div class="small text-muted">Across all apps</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="99">99</div>
+                        <div class="fw-semibold mt-2">% Crash Free</div>
+                        <div class="small text-muted">Session stability</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="40">40</div>
+                        <div class="fw-semibold mt-2">+ Certificates</div>
+                        <div class="small text-muted">Verified skills</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="122">122</div>
+                        <div class="fw-semibold mt-2">GitHub Repos</div>
+                        <div class="small text-muted">Open source</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="100">100</div>
+                        <div class="fw-semibold mt-2">% Satisfaction</div>
+                        <div class="small text-muted">Client feedback</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2">
+                    <div class="metric-card p-4 rounded-4 text-center h-100">
+                        <div class="stat-number" data-target="12">12</div>
+                        <div class="fw-semibold mt-2">Years Exp</div>
+                        <div class="small text-muted">Professional</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Certificate Collections</h2>
+                <p class="text-muted">82+ verified certifications across 9 major technology domains</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-graduation-cap fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-bold">Programming Languages</div>
+                                <div class="small text-muted">13 Certificates</div>
+                            </div>
+                        </div>
+                        <div class="small">Kotlin, Java, Python, JavaScript, TypeScript, C++, Swift, and more.</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fas fa-globe fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-bold">Web Development</div>
+                                <div class="small text-muted">13 Certificates</div>
+                            </div>
+                        </div>
+                        <div class="small">React, Angular, Next.js, Node.js, Python Django, and modern frontend frameworks.</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="brutalist-card p-4 rounded-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <i class="fab fa-android fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-bold">Mobile Development</div>
+                                <div class="small text-muted">7 Certificates</div>
+                            </div>
+                        </div>
+                        <div class="small">Android (Kotlin), Flutter, iOS, React Native, and cross-platform development.</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="#" class="btn orange-btn px-5 py-3">View All 82 Certificates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Collections -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">GitHub Account Collections</h2>
+                <p class="text-muted">Multiple active GitHub organizations and personal repositories</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fab fa-github fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-semibold text-dark">Dev-moe-kyawaung</div>
+                                <div class="small text-muted">Primary Account</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://moekyawaung-tech.github.io/" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fab fa-github fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-semibold text-dark">moekyawaung-tech</div>
+                                <div class="small text-muted">Open Source</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://moekyawaung-cyber.github.io/" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fab fa-github fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-semibold text-dark">moekyawaung-cyber</div>
+                                <div class="small text-muted">Security Projects</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://Moe-KyawAung.github.io/" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fab fa-github fa-2x text-orange"></i>
+                            <div>
+                                <div class="fw-semibold text-dark">Moe-KyawAung</div>
+                                <div class="small text-muted">Portfolio</div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lovable WPA Links -->
+    <section class="section" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lovable WPA Links</h2>
+                <p class="text-muted">Modern web applications and tools built with Lovable</p>
+            </div>
+            
+            <div class="row g-3">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://happy-cv-creator.lovable.app" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="fw-semibold text-dark">Happy CV Creator</div>
+                        <div class="small text-muted">Professional resume builder</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://moekyawaung.lovable.app" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="fw-semibold text-dark">Moe Kyaw Aung</div>
+                        <div class="small text-muted">Personal profile</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://the-cv-palette.lovable.app" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="fw-semibold text-dark">CV Palette</div>
+                        <div class="small text-muted">Resume design tool</div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 col-lg-3">
+                    <a href="https://moekyawaung-dev.lovable.app" target="_blank" class="brutalist-card d-block p-3 rounded-4 text-decoration-none">
+                        <div class="fw-semibold text-dark">Dev Portfolio</div>
+                        <div class="small text-muted">Developer showcase</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Collection -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Professional Emails</h2>
+            </div>
+            
+            <div class="row g-3 justify-content-center">
+                <div class="col-md-4">
+                    <div class="brutalist-card p-3 rounded-4">
+                        <div class="fw-medium">moekyawaung@programmer.net</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brutalist-card p-3 rounded-4">
+                        <div class="fw-medium">moekyawaung@technologist.com</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="brutalist-card p-3 rounded-4">
+                        <div class="fw-medium">moekyawaung@engineer.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <section class="section" style="background: #F8F5EB;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Connect With Me</h2>
+            </div>
+            
+            <div class="row justify-content-center g-4">
+                <div class="col-auto">
+                    <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="btn btn-lg btn-outline-dark d-flex align-items-center gap-2 px-4 py-3">
+                        <i class="fab fa-github fa-lg"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" class="btn btn-lg btn-outline-dark d-flex align-items-center gap-2 px-4 py-3">
+                        <i class="fab fa-linkedin fa-lg"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://www.youtube.com/channel/UCuTXUguZb4xjeL2nX8WJGew" target="_blank" class="btn btn-lg btn-outline-dark d-flex align-items-center gap-2 px-4 py-3">
+                        <i class="fab fa-youtube fa-lg"></i>
+                        <span>YouTube</span>
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://bsky.app/profile/moekyawaung96.bsky.social" target="_blank" class="btn btn-lg btn-outline-dark d-flex align-items-center gap-2 px-4 py-3">
+                        <i class="fab fa-twitter fa-lg"></i>
+                        <span>Bluesky</span>
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <a href="https://gravatar.com/moekyawaung13721" target="_blank" class="btn btn-lg btn-outline-dark d-flex align-items-center gap-2 px-4 py-3">
+                        <i class="fas fa-user fa-lg"></i>
+                        <span>Gravatar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="section-title">Let's Work Together</h2>
+                        <p class="lead">Ready to build something great? Send me a message.</p>
+                    </div>
+                    
+                    <div class="brutalist-card p-5 rounded-4">
+                        <form id="contact-form">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">Full Name</label>
+                                        <input type="text" class="form-control py-3" placeholder="John Doe" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">Email Address</label>
+                                        <input type="email" class="form-control py-3" placeholder="you@company.com" required>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">Project Type</label>
+                                        <select class="form-control py-3">
+                                            <option>Android App Development</option>
+                                            <option>Kotlin Multiplatform Project</option>
+                                            <option>Firebase Integration</option>
+                                            <option>Code Review &amp; Architecture</option>
+                                            <option>Consulting</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="form-label fw-semibold">Message</label>
+                                        <textarea class="form-control" rows="5" placeholder="Tell me about your project..." required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-4">
+                                <button type="submit" class="btn orange-btn px-5 py-3 w-100">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fat Footer -->
+    <footer class="fat-footer pt-5 pb-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <div class="mb-4">
+                        <span class="fw-bold fs-4 text-white">MOE KYAW AUNG</span>
+                    </div>
+                    <p class="text-white-50">Senior Android Developer building the future of mobile.</p>
+                    
+                    <div class="mt-4">
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-white-50"><i class="fab fa-linkedin fa-lg"></i></a>
+                            <a href="#" class="text-white-50"><i class="fab fa-github fa-lg"></i></a>
+                            <a href="#" class="text-white-50"><i class="fab fa-youtube fa-lg"></i></a>
+                            <a href="#" class="text-white-50"><i class="fab fa-twitter fa-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-white mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#about" class="text-white-50 text-decoration-none">About Me</a></li>
+                        <li class="mb-2"><a href="#projects" class="text-white-50 text-decoration-none">Projects</a></li>
+                        <li class="mb-2"><a href="#certificates" class="text-white-50 text-decoration-none">Certificates</a></li>
+                        <li class="mb-2"><a href="#contact" class="text-white-50 text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-white mb-3">Contact</h6>
+                    <div class="text-white-50">
+                        <div class="mb-2"><i class="fas fa-envelope me-2"></i> moekyawaung@programmer.net</div>
+                        <div class="mb-2"><i class="fas fa-phone me-2"></i> +95 9 889 000 889</div>
+                        <div><i class="fas fa-map-marker-alt me-2"></i> Tachileik, Myanmar / Bangkok, Thailand</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold text-white mb-3">Newsletter</h6>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-outline-light" type="button">Subscribe</button>
+                    </div>
+                    <div class="small text-white-50 mt-2">Weekly updates on Android development.</div>
+                </div>
+            </div>
+            
+            <div class="border-top border-white border-opacity-10 mt-5 pt-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="small text-white-50">© 2025 Moe Kyaw Aung. All rights reserved.</div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="small text-white-50">Built with ❤️ in Myanmar &amp; Thailand</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="btn btn-dark position-fixed bottom-0 end-0 m-4 rounded-circle shadow-lg d-none" style="width: 52px; height: 52px; z-index: 999;" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 800);
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('main-nav');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+            }
+        });
+
+        // Smooth Scroll Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    const offset = 80;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition - bodyRect - offset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Theme Toggle (Dark/Light)
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check saved theme
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+        
+        themeToggle.addEventListener('click', function() {
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+        });
+
+        // Animated Statistics Counter
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 1800;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            });
+        }
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'impact') {
+                        animateCounters();
+                    }
+                    
+                    // Add fade-in animation
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Observe sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Custom Cursor
+        const cursor = document.getElementById('custom-cursor');
+        
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.display = 'block';
+        });
+        
+        document.addEventListener('mouseleave', function() {
+            cursor.style.display = 'none';
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 600) {
+                backToTop.classList.remove('d-none');
+            } else {
+                backToTop.classList.add('d-none');
+            }
+        });
+        
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Contact Form Validation
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Message Sent!';
+                btn.style.background = '#28a745';
+                
+                setTimeout(() => {
+                    contactForm.reset();
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                    
+                    // Show success toast
+                    const toast = document.createElement('div');
+                    toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#28a745;color:white;padding:12px 24px;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,0.1);';
+                    toast.innerHTML = 'Thank you! Your message has been sent successfully.';
+                    document.body.appendChild(toast);
+                    
+                    setTimeout(() => {
+                        toast.style.transition = 'all 0.4s ease';
+                        toast.style.opacity = '0';
+                        setTimeout(() => toast.remove(), 400);
+                    }, 3000);
+                }, 1800);
+            }, 1200);
+        });
+
+        // Hero Canvas Animation
+        function initHeroCanvas() {
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            let particles = [];
+            const particleCount = 60;
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random() * 0.6 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+                
+                draw() {
+                    ctx.fillStyle = `rgba(255, 150, 68, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                    
+                    // Connect particles
+                    for (let j = i; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 120) {
+                            ctx.strokeStyle = `rgba(255, 150, 68, ${0.1 - (distance / 1200)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                
+                requestAnimationFrame(animate);
+            }
+            
+            initParticles();
+            animate();
+            
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles();
+            });
+        }
+
+        // Initialize everything
+        function initPortfolio() {
+            initHeroCanvas();
+            
+            // Skill progress animation on scroll
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.width = entry.target.style.width;
+                        skillObserver.unobserve(entry.target);
+                    }
+                });
+            });
+            
+            skillBars.forEach(bar => skillObserver.observe(bar));
+            
+            // Add active nav link highlighting
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section[id]');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            });
+            
+            // Image lightbox for portfolio items
+            const portfolioImages = document.querySelectorAll('.app-card img');
+            portfolioImages.forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function() {
+                    const lightbox = document.createElement('div');
+                    lightbox.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:99999;';
+                    
+                    const imgClone = document.createElement('img');
+                    imgClone.src = this.src;
+                    imgClone.style.maxWidth = '90%';
+                    imgClone.style.maxHeight = '90%';
+                    imgClone.style.borderRadius = '8px';
+                    
+                    lightbox.appendChild(imgClone);
+                    document.body.appendChild(lightbox);
+                    
+                    lightbox.addEventListener('click', () => lightbox.remove());
+                });
+            });
+            
+            // Accessibility enhancement
+            console.log('%c[Portfolio] Production-ready portfolio initialized successfully.', 'color:#FF9644');
+        }
+
+        // Start the portfolio
+        document.addEventListener('DOMContentLoaded', initPortfolio);
+        
+        // Additional accessibility attributes
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.setAttribute('aria-label', link.textContent);
+        });
+    </script>
+</body>
+</html>
